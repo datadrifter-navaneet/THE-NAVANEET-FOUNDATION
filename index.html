@@ -1,0 +1,2369 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- ============================= SEO META TAGS ============================= -->
+  <title>The Navaneet Foundation | Navaneet S V — Cricket. Technology. Leadership. Impact.</title>
+  <meta name="title" content="The Navaneet Foundation | Navaneet S V — Cricket. Technology. Leadership. Impact.">
+  <meta name="description" content="The official portfolio of Navaneet S V — Founder of Cric Connect, TEDxThiagarajar College of Engineering Organizer & Licensee, ICC Pitch Curator Foundation Course Certified. Building communities through cricket, technology, and leadership.">
+  <meta name="keywords" content="Navaneet S V, Navaneet Foundation, Cric Connect, TEDxTCE, TEDx Thiagarajar College of Engineering, ICC Pitch Curator, cricket technology, youth leadership, Brad Hogg interview, Thiagarajar College of Engineering">
+  <meta name="author" content="Navaneet S V">
+  <meta name="robots" content="index, follow">
+
+  <!-- ============================= OPEN GRAPH / SOCIAL ============================= -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="The Navaneet Foundation | Cricket. Technology. Leadership. Impact.">
+  <meta property="og:description" content="The official portfolio and organization site of Navaneet S V — Founder of Cric Connect, TEDxTCE Organizer & Licensee, and ICC Pitch Curator Certified. Building communities through cricket, technology, and leadership.">
+  <meta property="og:image" content="assets/og-cover.jpg">
+  <meta property="og:url" content="https://www.navaneetfoundation.org/">
+  <meta property="og:site_name" content="The Navaneet Foundation">
+  <meta property="og:locale" content="en_IN">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="The Navaneet Foundation | Navaneet S V">
+  <meta name="twitter:description" content="Cricket. Technology. Leadership. Impact. — The official site of Navaneet S V.">
+  <meta name="twitter:image" content="assets/og-cover.jpg">
+
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 fill=%22%230A192F%22/><text x=%2250%22 y=%2266%22 font-size=%2260%22 fill=%22%23D4AF37%22 text-anchor=%22middle%22 font-family=%22Georgia%22>N</text></svg>">
+
+  <!-- Preconnect for font performance -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;0,800;1,500&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+/* ====================================================================
+   THE NAVANEET FOUNDATION — STYLESHEET
+   Design tokens, base styles, components, and responsive rules.
+   Palette: Navy / Gold / White / Light Gray (brief-locked)
+   Type: Playfair Display (display) + Inter (body/utility)
+   Signature: cricket-seam divider motif + scorecard-style eyebrows
+   ==================================================================== */
+
+/* ---------------------------------------------------------------
+   1. DESIGN TOKENS
+   --------------------------------------------------------------- */
+:root {
+  /* Core palette (brief-locked) */
+  --navy: #0A192F;
+  --navy-deep: #06101F;
+  --gold: #D4AF37;
+  --gold-light: #F0D78C;
+  --white: #FFFFFF;
+  --gray-light: #F5F5F5;
+
+  /* Derived tones */
+  --navy-soft: #122742;
+  --ink: #0A192F;
+  --ink-muted: #5C6B82;
+  --border-soft: rgba(10, 25, 47, 0.10);
+  --border-soft-on-navy: rgba(212, 175, 55, 0.25);
+
+  /* Surface roles (swapped by theme) */
+  --surface-base: var(--white);
+  --surface-alt: var(--gray-light);
+  --surface-dark: var(--navy);
+  --surface-dark-deep: var(--navy-deep);
+  --text-on-base: var(--navy);
+  --text-on-dark: var(--white);
+  --text-muted-on-base: var(--ink-muted);
+  --text-muted-on-dark: rgba(245, 245, 245, 0.72);
+
+  /* Typography */
+  --font-display: "Playfair Display", Georgia, serif;
+  --font-body: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+
+  /* Spacing scale */
+  --space-xs: 0.5rem;
+  --space-sm: 1rem;
+  --space-md: 1.75rem;
+  --space-lg: 3rem;
+  --space-xl: 5rem;
+  --space-2xl: 8rem;
+
+  /* Layout */
+  --container-width: 1200px;
+  --radius-sm: 6px;
+  --radius-md: 12px;
+  --header-height: 84px;
+
+  /* Motion */
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --transition-fast: 0.2s var(--ease-out);
+  --transition-mid: 0.45s var(--ease-out);
+}
+
+/* Dark mode override: flips base/alt surfaces while keeping navy sections navy */
+[data-theme="dark"] {
+  --surface-base: #0D1B2E;
+  --surface-alt: #102237;
+  --text-on-base: var(--white);
+  --text-muted-on-base: rgba(245, 245, 245, 0.68);
+  --border-soft: rgba(245, 245, 245, 0.12);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* ---------------------------------------------------------------
+   2. RESET & BASE
+   --------------------------------------------------------------- */
+*, *::before, *::after { box-sizing: border-box; }
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: var(--header-height);
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-body);
+  background: var(--surface-base);
+  color: var(--text-on-base);
+  -webkit-font-smoothing: antialiased;
+  transition: background var(--transition-mid), color var(--transition-mid);
+  overflow-x: hidden;
+}
+
+img { max-width: 100%; display: block; }
+
+a { color: inherit; text-decoration: none; }
+
+ul, ol { margin: 0; padding: 0; list-style: none; }
+
+h1, h2, h3, h4 { font-family: var(--font-display); margin: 0; line-height: 1.15; }
+
+p { margin: 0; line-height: 1.7; }
+
+button { font-family: inherit; cursor: pointer; border: none; background: none; }
+
+input, textarea { font-family: inherit; font-size: 1rem; }
+
+.container {
+  max-width: var(--container-width);
+  margin: 0 auto;
+  padding: 0 var(--space-lg);
+}
+
+.skip-link {
+  position: absolute;
+  left: -9999px;
+  top: 0;
+  background: var(--gold);
+  color: var(--navy);
+  padding: 0.6rem 1rem;
+  z-index: 1000;
+  font-weight: 600;
+}
+.skip-link:focus {
+  left: var(--space-sm);
+  top: var(--space-sm);
+}
+
+/* Visible keyboard focus across the site */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+/* ---------------------------------------------------------------
+   3. SCROLL PROGRESS BAR
+   --------------------------------------------------------------- */
+.scroll-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 3px;
+  width: 0%;
+  background: linear-gradient(90deg, var(--gold), var(--gold-light));
+  z-index: 1100;
+  transition: width 0.1s linear;
+}
+
+/* ---------------------------------------------------------------
+   4. EYEBROW / SCOREBOARD LABEL (signature typographic device)
+   --------------------------------------------------------------- */
+.eyebrow {
+  font-family: var(--font-body);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  color: var(--gold);
+  margin: 0 0 var(--space-sm);
+}
+.eyebrow--dark { color: var(--navy); opacity: 0.55; }
+.eyebrow__bracket { color: var(--gold); opacity: 0.7; }
+
+.section__title {
+  font-size: clamp(2rem, 4vw, 2.75rem);
+  font-weight: 700;
+  color: var(--navy);
+  margin-bottom: var(--space-lg);
+  max-width: 20ch;
+}
+.section__title--light { color: var(--white); }
+
+/* ---------------------------------------------------------------
+   5. NAVIGATION
+   --------------------------------------------------------------- */
+.site-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  background: rgba(10, 25, 47, 0.0);
+  backdrop-filter: blur(0px);
+  transition: background var(--transition-mid), backdrop-filter var(--transition-mid), box-shadow var(--transition-mid);
+}
+.site-header.is-scrolled {
+  background: rgba(10, 25, 47, 0.92);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 4px 24px rgba(0,0,0,0.25);
+}
+
+.navbar {
+  height: var(--header-height);
+  max-width: var(--container-width);
+  margin: 0 auto;
+  padding: 0 var(--space-lg);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.navbar__brand {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  color: var(--white);
+}
+.navbar__crest {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  border: 1.5px solid var(--gold);
+  color: var(--gold);
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.1rem;
+  border-radius: 2px;
+  flex-shrink: 0;
+}
+.navbar__brand-text {
+  font-family: var(--font-display);
+  font-size: 0.95rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  line-height: 1.25;
+}
+.navbar__brand-sub {
+  display: block;
+  color: var(--gold);
+  font-size: 0.78rem;
+  letter-spacing: 0.18em;
+}
+
+.navbar__links {
+  display: flex;
+  gap: var(--space-md);
+}
+.nav-link {
+  position: relative;
+  color: var(--white);
+  font-size: 0.88rem;
+  font-weight: 500;
+  letter-spacing: 0.03em;
+  padding: 0.4rem 0;
+  opacity: 0.82;
+  transition: opacity var(--transition-fast);
+}
+.nav-link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  height: 2px;
+  width: 0%;
+  background: var(--gold);
+  transition: width var(--transition-fast);
+}
+.nav-link:hover { opacity: 1; }
+.nav-link:hover::after { width: 100%; }
+.nav-link.is-active { opacity: 1; color: var(--gold); }
+.nav-link.is-active::after { width: 100%; }
+
+.navbar__controls {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+}
+
+.theme-toggle {
+  width: 38px;
+  height: 38px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--border-soft-on-navy);
+  border-radius: 50%;
+  color: var(--gold);
+  transition: border-color var(--transition-fast), transform var(--transition-fast);
+}
+.theme-toggle:hover { border-color: var(--gold); transform: rotate(20deg); }
+.theme-toggle svg { width: 18px; height: 18px; }
+.theme-toggle .icon-moon { display: none; }
+[data-theme="dark"] .theme-toggle .icon-sun { display: none; }
+[data-theme="dark"] .theme-toggle .icon-moon { display: block; }
+
+.nav-toggle {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  width: 38px;
+  height: 38px;
+}
+.nav-toggle span {
+  display: block;
+  width: 22px;
+  height: 2px;
+  background: var(--gold);
+  transition: transform var(--transition-fast), opacity var(--transition-fast);
+}
+.nav-toggle.is-active span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.nav-toggle.is-active span:nth-child(2) { opacity: 0; }
+.nav-toggle.is-active span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+/* ---------------------------------------------------------------
+   6. HERO SECTION
+   --------------------------------------------------------------- */
+.hero {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  background: radial-gradient(ellipse at 75% 20%, var(--navy-soft) 0%, var(--navy) 55%, var(--navy-deep) 100%);
+  overflow: hidden;
+  padding-top: var(--header-height);
+}
+
+/* Signature element: animated cricket-seam line used as ambient background motion */
+.hero__seam {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.5;
+  pointer-events: none;
+}
+.hero__seam svg { width: 100%; height: 100%; }
+.seam-path {
+  fill: none;
+  stroke: var(--gold);
+  stroke-width: 1.5;
+  stroke-opacity: 0.35;
+  stroke-dasharray: 2400;
+  stroke-dashoffset: 2400;
+  animation: drawSeam 3.4s var(--ease-out) forwards;
+}
+@keyframes drawSeam {
+  to { stroke-dashoffset: 0; }
+}
+
+.hero__grid {
+  position: relative;
+  z-index: 2;
+  max-width: var(--container-width);
+  margin: 0 auto;
+  width: 100%;
+  padding: var(--space-xl) var(--space-lg);
+  display: grid;
+  grid-template-columns: 1.3fr 0.7fr;
+  gap: var(--space-xl);
+  align-items: center;
+}
+
+.hero__content {
+  color: var(--white);
+  animation: fadeSlideUp 0.9s var(--ease-out) both;
+}
+
+.hero__headline {
+  font-size: clamp(2.4rem, 5.4vw, 4rem);
+  font-weight: 700;
+  color: var(--white);
+  margin: var(--space-sm) 0 var(--space-md);
+}
+.hero__headline-accent {
+  color: var(--gold);
+  font-style: italic;
+  font-weight: 600;
+}
+
+.hero__tagline {
+  font-family: var(--font-body);
+  font-size: 1.15rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  color: var(--gold-light);
+  min-height: 1.6em;
+  margin-bottom: var(--space-md);
+}
+.typed-cursor {
+  display: inline-block;
+  margin-left: 2px;
+  color: var(--gold);
+  animation: blinkCursor 0.9s steps(1) infinite;
+}
+@keyframes blinkCursor { 50% { opacity: 0; } }
+
+.hero__lede {
+  max-width: 46ch;
+  color: rgba(245, 245, 245, 0.78);
+  font-size: 1.05rem;
+  margin-bottom: var(--space-lg);
+}
+
+.hero__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-sm);
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.9rem 1.8rem;
+  font-size: 0.92rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  border-radius: var(--radius-sm);
+  transition: transform var(--transition-fast), box-shadow var(--transition-fast), background var(--transition-fast), color var(--transition-fast);
+}
+.btn--gold {
+  background: var(--gold);
+  color: var(--navy);
+}
+.btn--gold:hover {
+  background: var(--gold-light);
+  transform: translateY(-2px);
+  box-shadow: 0 12px 24px rgba(212, 175, 55, 0.25);
+}
+.btn--ghost {
+  border: 1.5px solid var(--border-soft-on-navy);
+  color: var(--white);
+}
+.btn--ghost:hover {
+  border-color: var(--gold);
+  background: rgba(212, 175, 55, 0.08);
+  transform: translateY(-2px);
+}
+.btn--full { width: 100%; }
+
+.hero__portrait {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  animation: fadeSlideUp 0.9s var(--ease-out) 0.2s both;
+}
+.portrait-frame {
+  position: relative;
+  width: min(280px, 100%);
+  aspect-ratio: 3 / 4;
+}
+.portrait-placeholder {
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(160deg, var(--navy-soft), var(--navy-deep));
+  border: 1px solid var(--border-soft-on-navy);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.portrait-placeholder__initials {
+  font-family: var(--font-display);
+  font-size: 3rem;
+  color: var(--gold);
+  letter-spacing: 0.05em;
+}
+.portrait-frame__corner {
+  position: absolute;
+  width: 36px;
+  height: 36px;
+  border: 2px solid var(--gold);
+}
+.portrait-frame__corner--tl { top: -10px; left: -10px; border-right: none; border-bottom: none; }
+.portrait-frame__corner--br { bottom: -10px; right: -10px; border-left: none; border-top: none; }
+
+.portrait-caption {
+  margin-top: var(--space-sm);
+  text-align: center;
+  color: var(--white);
+  font-weight: 600;
+}
+.portrait-caption span {
+  display: block;
+  font-weight: 400;
+  font-size: 0.85rem;
+  color: var(--gold-light);
+  margin-top: 0.2rem;
+}
+
+.scroll-cue {
+  position: absolute;
+  bottom: var(--space-md);
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.4rem;
+  color: var(--gold-light);
+  font-size: 0.72rem;
+  letter-spacing: 0.18em;
+  z-index: 2;
+}
+.scroll-cue__line {
+  width: 1px;
+  height: 32px;
+  background: linear-gradient(to bottom, var(--gold), transparent);
+  animation: scrollPulse 1.8s ease-in-out infinite;
+}
+@keyframes scrollPulse {
+  0%, 100% { opacity: 0.3; }
+  50% { opacity: 1; }
+}
+
+@keyframes fadeSlideUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ---------------------------------------------------------------
+   7. GENERIC SECTION RHYTHM (alternating navy / light bands)
+   --------------------------------------------------------------- */
+.section {
+  padding: var(--space-2xl) 0;
+}
+.section.about,
+.section.impact,
+.section.timeline-section,
+.section.gallery-section {
+  background: var(--surface-alt);
+}
+.section.mission,
+.section.projects,
+.section.media,
+.section.foundation {
+  background: var(--surface-dark);
+}
+
+/* ---------------------------------------------------------------
+   8. SCROLL REVEAL ANIMATION
+   --------------------------------------------------------------- */
+.reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.7s var(--ease-out), transform 0.7s var(--ease-out);
+}
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ---------------------------------------------------------------
+   9. ABOUT SECTION
+   --------------------------------------------------------------- */
+.about__grid {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr;
+  gap: var(--space-xl);
+  align-items: start;
+}
+.about__bio p {
+  color: var(--text-muted-on-base);
+  margin-bottom: var(--space-sm);
+  font-size: 1.02rem;
+}
+.about__bio strong { color: var(--text-on-base); }
+
+.about__tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  margin-top: var(--space-md);
+}
+.tag {
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  padding: 0.45rem 0.9rem;
+  border: 1px solid var(--gold);
+  color: var(--navy);
+  background: rgba(212, 175, 55, 0.08);
+  border-radius: 999px;
+}
+[data-theme="dark"] .tag { color: var(--gold-light); }
+
+.about__counters {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-sm);
+}
+.counter-card {
+  background: var(--surface-base);
+  border: 1px solid var(--border-soft);
+  border-radius: var(--radius-md);
+  padding: var(--space-md);
+  text-align: center;
+  box-shadow: 0 8px 24px rgba(10, 25, 47, 0.06);
+}
+.counter-card__number {
+  display: block;
+  font-family: var(--font-display);
+  font-size: 2.4rem;
+  font-weight: 700;
+  color: var(--gold);
+  line-height: 1;
+}
+.counter-card__label {
+  display: block;
+  margin-top: 0.5rem;
+  font-size: 0.8rem;
+  color: var(--text-muted-on-base);
+  font-weight: 500;
+}
+
+/* ---------------------------------------------------------------
+   10. MISSION & VISION
+   --------------------------------------------------------------- */
+.mission__statements {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-md);
+  margin-bottom: var(--space-xl);
+}
+.statement-card {
+  background: var(--navy-soft);
+  border: 1px solid var(--border-soft-on-navy);
+  border-radius: var(--radius-md);
+  padding: var(--space-lg);
+}
+.statement-card__title {
+  color: var(--gold);
+  font-size: 1.5rem;
+  margin-bottom: var(--space-xs);
+}
+.statement-card p { color: rgba(245,245,245,0.8); }
+
+.mission__values-heading {
+  color: var(--white);
+  font-size: 1.4rem;
+  margin-bottom: var(--space-md);
+}
+
+.values-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--space-md);
+}
+.value-card {
+  border-top: 2px solid var(--gold);
+  padding-top: var(--space-sm);
+}
+.value-card__mark {
+  font-family: var(--font-display);
+  font-size: 0.85rem;
+  color: var(--gold);
+  letter-spacing: 0.1em;
+}
+.value-card h4 {
+  color: var(--white);
+  font-size: 1.15rem;
+  margin: 0.4rem 0 0.5rem;
+}
+.value-card p {
+  color: rgba(245,245,245,0.7);
+  font-size: 0.92rem;
+}
+
+/* ---------------------------------------------------------------
+   11. IMPACT AREAS
+   --------------------------------------------------------------- */
+.impact-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-md);
+}
+.impact-card {
+  background: var(--surface-base);
+  border: 1px solid var(--border-soft);
+  border-radius: var(--radius-md);
+  padding: var(--space-lg);
+  transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+}
+.impact-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 16px 32px rgba(10, 25, 47, 0.1);
+}
+.impact-card__icon {
+  width: 52px;
+  height: 52px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: rgba(212, 175, 55, 0.12);
+  color: var(--gold);
+  margin-bottom: var(--space-sm);
+}
+.impact-card__icon svg { width: 24px; height: 24px; }
+.impact-card h3 {
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+  color: var(--text-on-base);
+}
+.impact-card p {
+  color: var(--text-muted-on-base);
+  font-size: 0.95rem;
+}
+
+/* ---------------------------------------------------------------
+   12. PROJECTS
+   --------------------------------------------------------------- */
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-md);
+}
+.project-card {
+  position: relative;
+  background: var(--navy-soft);
+  border: 1px solid var(--border-soft-on-navy);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  transition: transform var(--transition-fast), border-color var(--transition-fast);
+}
+.project-card:hover,
+.project-card:focus-within {
+  transform: translateY(-6px);
+  border-color: var(--gold);
+}
+.project-card__inner { padding: var(--space-lg); }
+.project-card__tag {
+  display: inline-block;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  color: var(--navy);
+  background: var(--gold);
+  padding: 0.3rem 0.7rem;
+  border-radius: 999px;
+  margin-bottom: var(--space-sm);
+}
+.project-card h3 {
+  color: var(--white);
+  font-size: 1.5rem;
+  margin-bottom: 0.6rem;
+}
+.project-card p {
+  color: rgba(245,245,245,0.75);
+  margin-bottom: var(--space-sm);
+}
+.project-card__link {
+  color: var(--gold);
+  font-weight: 600;
+  font-size: 0.9rem;
+  transition: letter-spacing var(--transition-fast);
+}
+.project-card:hover .project-card__link { letter-spacing: 0.03em; }
+
+/* ---------------------------------------------------------------
+   13. ACHIEVEMENTS TIMELINE
+   --------------------------------------------------------------- */
+.timeline {
+  position: relative;
+  max-width: 760px;
+  margin: 0 auto;
+  padding-left: var(--space-lg);
+  border-left: 2px solid var(--gold);
+}
+.timeline__item {
+  position: relative;
+  padding-bottom: var(--space-xl);
+}
+.timeline__item:last-child { padding-bottom: 0; }
+.timeline__marker {
+  position: absolute;
+  left: calc(-1 * var(--space-lg) - 7px);
+  top: 4px;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: var(--gold);
+  border: 3px solid var(--surface-alt);
+  box-shadow: 0 0 0 2px var(--gold);
+}
+.timeline__tag {
+  display: inline-block;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  color: var(--gold);
+  margin-bottom: 0.3rem;
+}
+.timeline__content h3 {
+  font-size: 1.3rem;
+  color: var(--text-on-base);
+  margin-bottom: 0.4rem;
+}
+.timeline__content p {
+  color: var(--text-muted-on-base);
+}
+
+/* ---------------------------------------------------------------
+   14. MEDIA & RECOGNITION
+   --------------------------------------------------------------- */
+.media-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--space-md);
+}
+.media-card {
+  border-top: 1px solid var(--border-soft-on-navy);
+  padding-top: var(--space-sm);
+}
+.media-card h4 {
+  color: var(--gold);
+  font-size: 1.05rem;
+  margin-bottom: 0.5rem;
+}
+.media-card p {
+  color: rgba(245,245,245,0.72);
+  font-size: 0.92rem;
+}
+
+/* ---------------------------------------------------------------
+   15. GALLERY + LIGHTBOX
+   --------------------------------------------------------------- */
+.gallery-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  margin-bottom: var(--space-lg);
+}
+.filter-btn {
+  padding: 0.55rem 1.1rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+  border: 1px solid var(--border-soft);
+  border-radius: 999px;
+  color: var(--text-muted-on-base);
+  transition: all var(--transition-fast);
+}
+.filter-btn:hover { border-color: var(--gold); color: var(--text-on-base); }
+.filter-btn.is-active {
+  background: var(--navy);
+  border-color: var(--navy);
+  color: var(--gold);
+}
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--space-sm);
+}
+.gallery-item {
+  margin: 0;
+  position: relative;
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+  cursor: pointer;
+  transition: transform var(--transition-fast), opacity var(--transition-mid);
+}
+.gallery-item.is-hidden {
+  display: none;
+}
+.gallery-item:hover { transform: scale(1.03); }
+.gallery-item__placeholder {
+  aspect-ratio: 1 / 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--white);
+  font-weight: 600;
+  font-size: 0.95rem;
+  letter-spacing: 0.04em;
+}
+.gallery-item__placeholder--1 { background: linear-gradient(140deg, #0A192F, #1d3a63); }
+.gallery-item__placeholder--2 { background: linear-gradient(140deg, #2b2110, #D4AF37); }
+.gallery-item__placeholder--3 { background: linear-gradient(140deg, #0A192F, #345580); }
+.gallery-item__placeholder--4 { background: linear-gradient(140deg, #1d3a63, #0A192F); }
+.gallery-item__placeholder--5 { background: linear-gradient(140deg, #3a2f12, #D4AF37); }
+.gallery-item__placeholder--6 { background: linear-gradient(140deg, #122742, #0A192F); }
+.gallery-item__placeholder--7 { background: linear-gradient(140deg, #0A192F, #4a3a14); }
+.gallery-item__placeholder--8 { background: linear-gradient(140deg, #345580, #122742); }
+
+.gallery-item figcaption {
+  position: absolute;
+  inset: auto 0 0 0;
+  padding: 0.6rem;
+  font-size: 0.78rem;
+  background: linear-gradient(to top, rgba(10,25,47,0.85), transparent);
+  color: var(--white);
+  opacity: 0;
+  transition: opacity var(--transition-fast);
+}
+.gallery-item:hover figcaption,
+.gallery-item:focus figcaption { opacity: 1; }
+
+.lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 1200;
+  background: rgba(6, 16, 31, 0.95);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.lightbox[hidden] { display: none; }
+.lightbox__stage {
+  max-width: min(80vw, 700px);
+  text-align: center;
+}
+.lightbox__image {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border-soft-on-navy);
+}
+.lightbox__caption {
+  margin-top: var(--space-sm);
+  color: var(--gold-light);
+  font-size: 0.95rem;
+}
+.lightbox__close {
+  position: absolute;
+  top: var(--space-md);
+  right: var(--space-md);
+  font-size: 2rem;
+  color: var(--white);
+  line-height: 1;
+}
+.lightbox__nav {
+  font-size: 2.5rem;
+  color: var(--gold);
+  padding: 0 var(--space-md);
+}
+.lightbox__close:hover,
+.lightbox__nav:hover { color: var(--gold); }
+
+/* ---------------------------------------------------------------
+   16. FOUNDATION INITIATIVES
+   --------------------------------------------------------------- */
+.foundation__intro {
+  max-width: 64ch;
+  color: rgba(245,245,245,0.78);
+  margin-bottom: var(--space-xl);
+  font-size: 1.05rem;
+}
+.initiatives-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-md);
+}
+.initiative-card {
+  background: var(--navy-soft);
+  border: 1px solid var(--border-soft-on-navy);
+  border-radius: var(--radius-md);
+  padding: var(--space-lg);
+}
+.initiative-card__index {
+  font-family: var(--font-display);
+  font-size: 1.6rem;
+  color: var(--gold);
+}
+.initiative-card h3 {
+  color: var(--white);
+  font-size: 1.25rem;
+  margin: 0.6rem 0;
+}
+.initiative-card p {
+  color: rgba(245,245,245,0.72);
+  font-size: 0.95rem;
+}
+
+/* ---------------------------------------------------------------
+   17. CONTACT
+   --------------------------------------------------------------- */
+.contact__grid {
+  display: grid;
+  grid-template-columns: 0.9fr 1.1fr;
+  gap: var(--space-xl);
+}
+.contact__lede {
+  color: var(--text-muted-on-base);
+  font-size: 1.05rem;
+  margin-bottom: var(--space-lg);
+  max-width: 40ch;
+}
+.contact__list { display: flex; flex-direction: column; gap: var(--space-md); }
+.contact__list-label {
+  display: block;
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+  font-weight: 700;
+  color: var(--gold);
+  margin-bottom: 0.2rem;
+}
+.contact__list a {
+  font-size: 1.05rem;
+  color: var(--text-on-base);
+  border-bottom: 1px solid transparent;
+  transition: border-color var(--transition-fast);
+}
+.contact__list a:hover { border-color: var(--gold); }
+
+.contact__form {
+  background: var(--surface-base);
+  border: 1px solid var(--border-soft);
+  border-radius: var(--radius-md);
+  padding: var(--space-lg);
+  box-shadow: 0 8px 32px rgba(10,25,47,0.06);
+}
+.form-field { margin-bottom: var(--space-md); }
+.form-field label {
+  display: block;
+  font-size: 0.82rem;
+  font-weight: 600;
+  margin-bottom: 0.4rem;
+  color: var(--text-on-base);
+}
+.form-field input,
+.form-field textarea {
+  width: 100%;
+  padding: 0.75rem 0.9rem;
+  border: 1px solid var(--border-soft);
+  border-radius: var(--radius-sm);
+  background: var(--surface-alt);
+  color: var(--text-on-base);
+  transition: border-color var(--transition-fast);
+  resize: vertical;
+}
+.form-field input:focus,
+.form-field textarea:focus {
+  border-color: var(--gold);
+  outline: none;
+}
+.form-field.has-error input,
+.form-field.has-error textarea {
+  border-color: #c0392b;
+}
+.form-error {
+  display: block;
+  min-height: 1.2em;
+  font-size: 0.78rem;
+  color: #c0392b;
+  margin-top: 0.3rem;
+}
+.form-success {
+  margin-top: var(--space-sm);
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #1d7a4c;
+  min-height: 1.2em;
+}
+
+/* ---------------------------------------------------------------
+   18. FOOTER
+   --------------------------------------------------------------- */
+.site-footer {
+  background: var(--navy-deep);
+  color: var(--white);
+  padding: var(--space-xl) 0 var(--space-md);
+  text-align: center;
+}
+.site-footer__grid {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: var(--space-md);
+  text-align: left;
+  margin-bottom: var(--space-lg);
+}
+.site-footer__brand {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+.site-footer__brand p {
+  font-family: var(--font-display);
+  font-size: 0.85rem;
+  letter-spacing: 0.05em;
+}
+.site-footer__links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-sm);
+}
+.site-footer__links a,
+.site-footer__social a {
+  font-size: 0.85rem;
+  color: rgba(245,245,245,0.7);
+  transition: color var(--transition-fast);
+}
+.site-footer__links a:hover,
+.site-footer__social a:hover { color: var(--gold); }
+.site-footer__social { display: flex; gap: var(--space-sm); }
+
+.site-footer__tagline {
+  color: var(--gold);
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: 1.1rem;
+  margin-bottom: var(--space-sm);
+}
+.site-footer__copy {
+  font-size: 0.78rem;
+  color: rgba(245,245,245,0.5);
+}
+
+/* ---------------------------------------------------------------
+   19. BACK TO TOP
+   --------------------------------------------------------------- */
+.back-to-top {
+  position: fixed;
+  bottom: var(--space-md);
+  right: var(--space-md);
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  background: var(--gold);
+  color: var(--navy);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.25);
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity var(--transition-fast), transform var(--transition-fast), background var(--transition-fast);
+  z-index: 900;
+}
+.back-to-top.is-visible { opacity: 1; transform: translateY(0); }
+.back-to-top:hover { background: var(--gold-light); }
+.back-to-top svg { width: 20px; height: 20px; }
+.back-to-top[hidden] { display: none; }
+
+/* ---------------------------------------------------------------
+   20. RESPONSIVE BREAKPOINTS
+   --------------------------------------------------------------- */
+@media (max-width: 1024px) {
+  .hero__grid { grid-template-columns: 1fr; text-align: center; }
+  .hero__lede { margin-inline: auto; }
+  .hero__actions { justify-content: center; }
+  .hero__portrait { order: -1; }
+  .about__grid { grid-template-columns: 1fr; }
+  .about__counters { grid-template-columns: repeat(4, 1fr); }
+  .impact-grid { grid-template-columns: repeat(2, 1fr); }
+  .projects-grid { grid-template-columns: 1fr; }
+  .values-grid { grid-template-columns: repeat(2, 1fr); }
+  .media-grid { grid-template-columns: repeat(2, 1fr); }
+  .initiatives-grid { grid-template-columns: 1fr; }
+  .contact__grid { grid-template-columns: 1fr; }
+  .gallery-grid { grid-template-columns: repeat(3, 1fr); }
+}
+
+@media (max-width: 820px) {
+  .navbar__links {
+    position: fixed;
+    top: var(--header-height);
+    left: 0;
+    right: 0;
+    flex-direction: column;
+    background: rgba(10, 25, 47, 0.97);
+    backdrop-filter: blur(10px);
+    padding: var(--space-md) var(--space-lg);
+    gap: var(--space-sm);
+    transform: translateY(-110%);
+    transition: transform var(--transition-mid);
+  }
+  .navbar__links.is-open { transform: translateY(0); }
+  .nav-toggle { display: flex; }
+  .mission__statements { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 640px) {
+  :root {
+    --space-2xl: 5rem;
+    --space-xl: 3rem;
+  }
+  .container { padding: 0 var(--space-md); }
+  .navbar { padding: 0 var(--space-md); }
+  .about__counters { grid-template-columns: 1fr 1fr; }
+  .impact-grid { grid-template-columns: 1fr; }
+  .values-grid { grid-template-columns: 1fr; }
+  .media-grid { grid-template-columns: 1fr; }
+  .gallery-grid { grid-template-columns: repeat(2, 1fr); }
+  .timeline { padding-left: var(--space-md); }
+  .timeline__marker { left: calc(-1 * var(--space-md) - 7px); }
+  .lightbox__nav { font-size: 1.8rem; padding: 0 var(--space-sm); }
+}
+
+  </style>
+</head>
+<body>
+
+  <!-- ============================= SKIP LINK (ACCESSIBILITY) ============================= -->
+  <a class="skip-link" href="#main">Skip to main content</a>
+
+  <!-- ============================= SCROLL PROGRESS BAR ============================= -->
+  <div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
+
+  <!-- ============================= FIXED NAVIGATION ============================= -->
+  <header class="site-header" id="siteHeader">
+    <nav class="navbar" aria-label="Primary navigation">
+      <a href="#home" class="navbar__brand">
+        <span class="navbar__crest" aria-hidden="true">N</span>
+        <span class="navbar__brand-text">THE NAVANEET<span class="navbar__brand-sub">FOUNDATION</span></span>
+      </a>
+
+      <ul class="navbar__links" id="navLinks">
+        <li><a href="#home" class="nav-link" data-nav="home">Home</a></li>
+        <li><a href="#about" class="nav-link" data-nav="about">About</a></li>
+        <li><a href="#foundation" class="nav-link" data-nav="foundation">Foundation</a></li>
+        <li><a href="#projects" class="nav-link" data-nav="projects">Projects</a></li>
+        <li><a href="#achievements" class="nav-link" data-nav="achievements">Achievements</a></li>
+        <li><a href="#gallery" class="nav-link" data-nav="gallery">Gallery</a></li>
+        <li><a href="#contact" class="nav-link" data-nav="contact">Contact</a></li>
+      </ul>
+
+      <div class="navbar__controls">
+        <button class="theme-toggle" id="themeToggle" type="button" aria-label="Toggle dark and light mode" aria-pressed="false">
+          <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"></path></svg>
+          <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path></svg>
+        </button>
+
+        <button class="nav-toggle" id="navToggle" type="button" aria-label="Open navigation menu" aria-expanded="false" aria-controls="navLinks">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </nav>
+  </header>
+
+  <main id="main">
+
+    <!-- ============================= HERO SECTION ============================= -->
+    <section class="hero" id="home" aria-label="Introduction">
+      <div class="hero__seam" aria-hidden="true">
+        <svg viewBox="0 0 1200 600" preserveAspectRatio="none">
+          <path class="seam-path" d="M -50 580 Q 300 420 600 480 T 1250 380" />
+          <g class="seam-stitches"></g>
+        </svg>
+      </div>
+
+      <div class="hero__grid">
+        <div class="hero__content">
+          <p class="eyebrow"><span class="eyebrow__bracket">[</span> THE NAVANEET FOUNDATION <span class="eyebrow__bracket">]</span></p>
+
+          <h1 class="hero__headline">
+            Building Communities Through<br>
+            <span class="hero__headline-accent">Cricket, Technology,<br>and Leadership</span>
+          </h1>
+
+          <p class="hero__tagline">
+            <span id="typedText" aria-live="polite"></span><span class="typed-cursor" aria-hidden="true">|</span>
+          </p>
+
+          <p class="hero__lede">
+            The official portfolio of <strong>Navaneet S V</strong> — student, founder, organizer,
+            and a believer that sport, technology, and service can rebuild the systems we share.
+          </p>
+
+          <div class="hero__actions">
+            <a href="#foundation" class="btn btn--gold">Explore the Foundation</a>
+            <a href="#contact" class="btn btn--ghost">Get in Touch</a>
+          </div>
+        </div>
+
+        <div class="hero__portrait">
+          <div class="portrait-frame">
+            <div class="portrait-placeholder" role="img" aria-label="Portrait of Navaneet S V">
+              <span class="portrait-placeholder__initials">NSV</span>
+            </div>
+            <span class="portrait-frame__corner portrait-frame__corner--tl" aria-hidden="true"></span>
+            <span class="portrait-frame__corner portrait-frame__corner--br" aria-hidden="true"></span>
+          </div>
+          <p class="portrait-caption">Navaneet S V<br><span>Founder &amp; Organizer</span></p>
+        </div>
+      </div>
+
+      <a href="#about" class="scroll-cue" aria-label="Scroll to About section">
+        <span class="scroll-cue__line"></span>
+        <span class="scroll-cue__text">Scroll</span>
+      </a>
+    </section>
+
+    <!-- ============================= ABOUT SECTION ============================= -->
+    <section class="section about" id="about" aria-labelledby="about-heading">
+      <div class="container">
+        <p class="eyebrow eyebrow--dark reveal"><span class="eyebrow__bracket">[</span> ABOUT <span class="eyebrow__bracket">]</span></p>
+        <h2 class="section__title reveal" id="about-heading">The Person Behind the Foundation</h2>
+
+        <div class="about__grid">
+          <div class="about__bio reveal">
+            <p>
+              Navaneet S V is a Computer Science Engineering student at
+              <strong>Thiagarajar College of Engineering, Madurai</strong>, whose work sits at the
+              intersection of sport, technology, and civic leadership. He believes that the same
+              discipline that builds a great cricket team — clear roles, fair systems, and trust
+              earned over time — can be applied to building stronger communities.
+            </p>
+            <p>
+              As the <strong>Founder of Cric Connect</strong>, he has built a platform and community
+              for cricket enthusiasts to learn, connect, and grow. As the <strong>Organizer and
+              Licensee of TEDxThiagarajar College of Engineering</strong>, he brings independently
+              curated ideas worth spreading to his campus and city. He is also
+              <strong>ICC Pitch Curator Foundation Course Certified</strong>, completing the program
+              with a 95% score, and has had the opportunity to interview Australian cricket legend
+              <strong>Brad Hogg</strong>.
+            </p>
+            <p>
+              Across every initiative, his focus remains the same: using cricket, technology, and
+              education as tools for community impact and youth leadership.
+            </p>
+
+            <div class="about__tags">
+              <span class="tag">Cricket</span>
+              <span class="tag">Technology</span>
+              <span class="tag">Education</span>
+              <span class="tag">Innovation</span>
+              <span class="tag">Community Service</span>
+            </div>
+          </div>
+
+          <div class="about__counters reveal">
+            <div class="counter-card">
+              <span class="counter-card__number" data-target="95" data-suffix="%">0%</span>
+              <span class="counter-card__label">ICC Pitch Curator<br>Course Score</span>
+            </div>
+            <div class="counter-card">
+              <span class="counter-card__number" data-target="4" data-suffix="+">0+</span>
+              <span class="counter-card__label">Flagship<br>Projects Founded</span>
+            </div>
+            <div class="counter-card">
+              <span class="counter-card__number" data-target="100" data-suffix="+">0+</span>
+              <span class="counter-card__label">TEDxTCE Event<br>Attendees</span>
+            </div>
+            <div class="counter-card">
+              <span class="counter-card__number" data-target="1" data-suffix="">0</span>
+              <span class="counter-card__label">Legend Interviewed<br>(Brad Hogg)</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================= MISSION & VISION SECTION ============================= -->
+    <section class="section mission" id="mission-vision" aria-labelledby="mission-heading">
+      <div class="container">
+        <p class="eyebrow reveal"><span class="eyebrow__bracket">[</span> MISSION &amp; VISION <span class="eyebrow__bracket">]</span></p>
+        <h2 class="section__title section__title--light reveal" id="mission-heading">Why The Foundation Exists</h2>
+
+        <div class="mission__statements">
+          <div class="statement-card reveal">
+            <h3 class="statement-card__title">Mission</h3>
+            <p>To empower young people through cricket, technology, and education — creating
+              platforms where talent is discovered, ideas are shared, and leadership is practiced,
+              not just taught.</p>
+          </div>
+          <div class="statement-card reveal">
+            <h3 class="statement-card__title">Vision</h3>
+            <p>A community where every student-athlete and young innovator has access to the
+              mentorship, tools, and stage required to turn potential into meaningful, lasting
+              impact.</p>
+          </div>
+        </div>
+
+        <h3 class="mission__values-heading reveal">Core Values</h3>
+        <div class="values-grid">
+          <div class="value-card reveal">
+            <span class="value-card__mark" aria-hidden="true">01</span>
+            <h4>Integrity</h4>
+            <p>Leading with honesty in every pitch, partnership, and project, on the field and off it.</p>
+          </div>
+          <div class="value-card reveal">
+            <span class="value-card__mark" aria-hidden="true">02</span>
+            <h4>Innovation</h4>
+            <p>Treating technology as a tool for fairness and access, not novelty for its own sake.</p>
+          </div>
+          <div class="value-card reveal">
+            <span class="value-card__mark" aria-hidden="true">03</span>
+            <h4>Service</h4>
+            <p>Measuring success by the communities strengthened, not just the milestones reached.</p>
+          </div>
+          <div class="value-card reveal">
+            <span class="value-card__mark" aria-hidden="true">04</span>
+            <h4>Excellence</h4>
+            <p>Holding every initiative, from a curated pitch to a curated idea, to a professional standard.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================= IMPACT AREAS SECTION ============================= -->
+    <section class="section impact" id="impact" aria-labelledby="impact-heading">
+      <div class="container">
+        <p class="eyebrow eyebrow--dark reveal"><span class="eyebrow__bracket">[</span> IMPACT AREAS <span class="eyebrow__bracket">]</span></p>
+        <h2 class="section__title reveal" id="impact-heading">Where the Work Happens</h2>
+
+        <div class="impact-grid">
+          <article class="impact-card reveal">
+            <div class="impact-card__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="9"/><path d="M12 3v18M3 12h18"/></svg>
+            </div>
+            <h3>Cricket Development</h3>
+            <p>Growing the sport from the ground up — pitch science, player platforms, and access to expert knowledge for the next generation of cricketers.</p>
+          </article>
+
+          <article class="impact-card reveal">
+            <div class="impact-card__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="4" width="18" height="14" rx="2"/><path d="M8 21h8M12 18v3"/></svg>
+            </div>
+            <h3>Technology Innovation</h3>
+            <p>Applying AI and software to age-old sporting problems, from umpiring decisions to civic service delivery.</p>
+          </article>
+
+          <article class="impact-card reveal">
+            <div class="impact-card__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 19.5A2.5 2.5 0 016.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 014 19.5v-15A2.5 2.5 0 016.5 2z"/></svg>
+            </div>
+            <h3>Education</h3>
+            <p>Curating ideas worth spreading through TEDxTCE and certified learning, including the ICC Pitch Curator Foundation Course.</p>
+          </article>
+
+          <article class="impact-card reveal">
+            <div class="impact-card__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 2l3 7h7l-5.5 4.5L18 21l-6-4-6 4 1.5-7.5L2 9h7z"/></svg>
+            </div>
+            <h3>Youth Leadership</h3>
+            <p>Putting students in charge of real organizations and real events, so leadership is learned by doing, not by lecture.</p>
+          </article>
+
+          <article class="impact-card reveal">
+            <div class="impact-card__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg>
+            </div>
+            <h3>Community Service</h3>
+            <p>Building outreach programs that connect students, alumni, and local communities around shared civic goals.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================= PROJECTS SECTION ============================= -->
+    <section class="section projects" id="projects" aria-labelledby="projects-heading">
+      <div class="container">
+        <p class="eyebrow reveal"><span class="eyebrow__bracket">[</span> PROJECTS <span class="eyebrow__bracket">]</span></p>
+        <h2 class="section__title section__title--light reveal" id="projects-heading">Flagship Initiatives</h2>
+
+        <div class="projects-grid">
+          <article class="project-card reveal" tabindex="0">
+            <div class="project-card__inner">
+              <span class="project-card__tag">Cricket Community</span>
+              <h3>Cric Connect</h3>
+              <p>A platform founded by Navaneet to connect cricket enthusiasts, players, and curators —
+                sharing knowledge, opportunities, and a shared love of the game.</p>
+              <span class="project-card__link">View Project →</span>
+            </div>
+          </article>
+
+          <article class="project-card reveal" tabindex="0">
+            <div class="project-card__inner">
+              <span class="project-card__tag">AI &amp; Sport</span>
+              <h3>Cricket AI Umpire</h3>
+              <p>An applied technology concept exploring how artificial intelligence can support fairer,
+                faster, and more consistent umpiring decisions on the field.</p>
+              <span class="project-card__link">View Project →</span>
+            </div>
+          </article>
+
+          <article class="project-card reveal" tabindex="0">
+            <div class="project-card__inner">
+              <span class="project-card__tag">Civic Technology</span>
+              <h3>GiftMoi</h3>
+              <p>A technology initiative reflecting Navaneet's interest in building useful, people-first
+                digital products beyond the cricket field.</p>
+              <span class="project-card__link">View Project →</span>
+            </div>
+          </article>
+
+          <article class="project-card reveal" tabindex="0">
+            <div class="project-card__inner">
+              <span class="project-card__tag">Ideas Worth Spreading</span>
+              <h3>TEDxTCE</h3>
+              <p>As Organizer and Licensee of TEDxThiagarajar College of Engineering, Navaneet curates
+                an independently organized stage for ideas that matter.</p>
+              <span class="project-card__link">View Project →</span>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================= ACHIEVEMENTS TIMELINE SECTION ============================= -->
+    <section class="section timeline-section" id="achievements" aria-labelledby="achievements-heading">
+      <div class="container">
+        <p class="eyebrow eyebrow--dark reveal"><span class="eyebrow__bracket">[</span> ACHIEVEMENTS <span class="eyebrow__bracket">]</span></p>
+        <h2 class="section__title reveal" id="achievements-heading">A Timeline of Milestones</h2>
+
+        <ol class="timeline">
+          <li class="timeline__item reveal">
+            <div class="timeline__marker" aria-hidden="true"></div>
+            <div class="timeline__content">
+              <span class="timeline__tag">Founder</span>
+              <h3>Founded Cric Connect</h3>
+              <p>Launched a platform to bring cricket enthusiasts together around learning, connection, and growth.</p>
+            </div>
+          </li>
+
+          <li class="timeline__item reveal">
+            <div class="timeline__marker" aria-hidden="true"></div>
+            <div class="timeline__content">
+              <span class="timeline__tag">Certification</span>
+              <h3>ICC Pitch Curator Foundation Course</h3>
+              <p>Completed the official ICC certification with a score of 95%, deepening expertise in pitch science and curation.</p>
+            </div>
+          </li>
+
+          <li class="timeline__item reveal">
+            <div class="timeline__marker" aria-hidden="true"></div>
+            <div class="timeline__content">
+              <span class="timeline__tag">Media</span>
+              <h3>Interview with Brad Hogg</h3>
+              <p>Sat down with Australian cricket legend Brad Hogg for an in-depth conversation on the game.</p>
+            </div>
+          </li>
+
+          <li class="timeline__item reveal">
+            <div class="timeline__marker" aria-hidden="true"></div>
+            <div class="timeline__content">
+              <span class="timeline__tag">Leadership</span>
+              <h3>Organizer &amp; Licensee, TEDxTCE</h3>
+              <p>Took on the licence for TEDxThiagarajar College of Engineering, building an independently organized TED event under the theme "We are the System."</p>
+            </div>
+          </li>
+
+          <li class="timeline__item reveal">
+            <div class="timeline__marker" aria-hidden="true"></div>
+            <div class="timeline__content">
+              <span class="timeline__tag">Today</span>
+              <h3>Building The Navaneet Foundation</h3>
+              <p>Bringing every initiative under one mission-driven umbrella focused on cricket, technology, and leadership.</p>
+            </div>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- ============================= MEDIA & RECOGNITION SECTION ============================= -->
+    <section class="section media" id="media" aria-labelledby="media-heading">
+      <div class="container">
+        <p class="eyebrow reveal"><span class="eyebrow__bracket">[</span> MEDIA &amp; RECOGNITION <span class="eyebrow__bracket">]</span></p>
+        <h2 class="section__title section__title--light reveal" id="media-heading">Awards, Certifications &amp; Interviews</h2>
+
+        <div class="media-grid">
+          <div class="media-card reveal">
+            <h4>Award &amp; Licence</h4>
+            <p>Official TEDx Organizer &amp; Licensee, recognized by TED for an independently organized event at Thiagarajar College of Engineering.</p>
+          </div>
+          <div class="media-card reveal">
+            <h4>Certification</h4>
+            <p>ICC Pitch Curator Foundation Course — Certified, completed with a 95% score.</p>
+          </div>
+          <div class="media-card reveal">
+            <h4>Interview</h4>
+            <p>Featured conversation with Australian cricket legend Brad Hogg, discussing the game at the highest level.</p>
+          </div>
+          <div class="media-card reveal">
+            <h4>Public Speaking</h4>
+            <p>Curates and hosts speaker sessions for TEDxTCE, coaching first-time speakers on stage presence and storytelling.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================= GALLERY SECTION ============================= -->
+    <section class="section gallery-section" id="gallery" aria-labelledby="gallery-heading">
+      <div class="container">
+        <p class="eyebrow eyebrow--dark reveal"><span class="eyebrow__bracket">[</span> GALLERY <span class="eyebrow__bracket">]</span></p>
+        <h2 class="section__title reveal" id="gallery-heading">Moments &amp; Milestones</h2>
+
+        <div class="gallery-filters reveal" role="tablist" aria-label="Filter gallery by category">
+          <button class="filter-btn is-active" data-filter="all" role="tab" aria-selected="true">All</button>
+          <button class="filter-btn" data-filter="cricket" role="tab" aria-selected="false">Cricket</button>
+          <button class="filter-btn" data-filter="tedx" role="tab" aria-selected="false">TEDxTCE</button>
+          <button class="filter-btn" data-filter="tech" role="tab" aria-selected="false">Technology</button>
+          <button class="filter-btn" data-filter="community" role="tab" aria-selected="false">Community</button>
+        </div>
+
+        <div class="gallery-grid" id="galleryGrid">
+          <!-- Gallery items are placeholders; replace background images with real photography -->
+          <figure class="gallery-item reveal" data-category="cricket" tabindex="0">
+            <div class="gallery-item__placeholder gallery-item__placeholder--1"><span>Cricket</span></div>
+            <figcaption>On the pitch with Cric Connect</figcaption>
+          </figure>
+          <figure class="gallery-item reveal" data-category="tedx" tabindex="0">
+            <div class="gallery-item__placeholder gallery-item__placeholder--2"><span>TEDxTCE</span></div>
+            <figcaption>TEDxTCE stage walkthrough</figcaption>
+          </figure>
+          <figure class="gallery-item reveal" data-category="tech" tabindex="0">
+            <div class="gallery-item__placeholder gallery-item__placeholder--3"><span>Technology</span></div>
+            <figcaption>Building the Cricket AI Umpire</figcaption>
+          </figure>
+          <figure class="gallery-item reveal" data-category="cricket" tabindex="0">
+            <div class="gallery-item__placeholder gallery-item__placeholder--4"><span>Interview</span></div>
+            <figcaption>Interviewing Brad Hogg</figcaption>
+          </figure>
+          <figure class="gallery-item reveal" data-category="community" tabindex="0">
+            <div class="gallery-item__placeholder gallery-item__placeholder--5"><span>Community</span></div>
+            <figcaption>Outreach with local students</figcaption>
+          </figure>
+          <figure class="gallery-item reveal" data-category="tedx" tabindex="0">
+            <div class="gallery-item__placeholder gallery-item__placeholder--6"><span>TEDxTCE</span></div>
+            <figcaption>Speaker rehearsal session</figcaption>
+          </figure>
+          <figure class="gallery-item reveal" data-category="cricket" tabindex="0">
+            <div class="gallery-item__placeholder gallery-item__placeholder--7"><span>Pitch Curation</span></div>
+            <figcaption>ICC Pitch Curator fieldwork</figcaption>
+          </figure>
+          <figure class="gallery-item reveal" data-category="community" tabindex="0">
+            <div class="gallery-item__placeholder gallery-item__placeholder--8"><span>Service</span></div>
+            <figcaption>Foundation community day</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================= LIGHTBOX (JS-CONTROLLED) ============================= -->
+    <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Image viewer" hidden>
+      <button class="lightbox__close" id="lightboxClose" type="button" aria-label="Close image viewer">&times;</button>
+      <button class="lightbox__nav lightbox__nav--prev" id="lightboxPrev" type="button" aria-label="Previous image">&#8249;</button>
+      <div class="lightbox__stage">
+        <div class="lightbox__image" id="lightboxImage" aria-hidden="true"></div>
+        <p class="lightbox__caption" id="lightboxCaption"></p>
+      </div>
+      <button class="lightbox__nav lightbox__nav--next" id="lightboxNext" type="button" aria-label="Next image">&#8250;</button>
+    </div>
+
+    <!-- ============================= FOUNDATION INITIATIVES SECTION ============================= -->
+    <section class="section foundation" id="foundation" aria-labelledby="foundation-heading">
+      <div class="container">
+        <p class="eyebrow reveal"><span class="eyebrow__bracket">[</span> FOUNDATION INITIATIVES <span class="eyebrow__bracket">]</span></p>
+        <h2 class="section__title section__title--light reveal" id="foundation-heading">Social Impact, By Design</h2>
+        <p class="foundation__intro reveal">
+          The Navaneet Foundation channels every project, partnership, and platform toward three
+          standing initiatives. Each is built to outlast any single event or academic year.
+        </p>
+
+        <div class="initiatives-grid">
+          <article class="initiative-card reveal">
+            <span class="initiative-card__index" aria-hidden="true">I</span>
+            <h3>Social Impact Projects</h3>
+            <p>Long-term programs such as Cric Connect and civic technology efforts like GiftMoi,
+              designed to solve real problems for real communities rather than serve as one-off
+              showcases.</p>
+          </article>
+          <article class="initiative-card reveal">
+            <span class="initiative-card__index" aria-hidden="true">II</span>
+            <h3>Youth Empowerment Programs</h3>
+            <p>Structured opportunities, from TEDxTCE speaker mentorship to cricket talent
+              pathways, that hand students real responsibility and real platforms early.</p>
+          </article>
+          <article class="initiative-card reveal">
+            <span class="initiative-card__index" aria-hidden="true">III</span>
+            <h3>Community Outreach</h3>
+            <p>Direct engagement with local schools, clubs, and cricket grounds, bringing
+              certified knowledge and technology access to people who might not otherwise reach it.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================= CONTACT SECTION ============================= -->
+    <section class="section contact" id="contact" aria-labelledby="contact-heading">
+      <div class="container">
+        <p class="eyebrow eyebrow--dark reveal"><span class="eyebrow__bracket">[</span> CONTACT <span class="eyebrow__bracket">]</span></p>
+        <h2 class="section__title reveal" id="contact-heading">Let's Build Something Together</h2>
+
+        <div class="contact__grid">
+          <div class="contact__info reveal">
+            <p class="contact__lede">
+              Whether it's a speaking opportunity, a partnership, a cricket collaboration, or a
+              technology idea, Navaneet welcomes the conversation.
+            </p>
+
+            <ul class="contact__list">
+              <li>
+                <span class="contact__list-label">Email</span>
+                <a href="mailto:contact@navaneetfoundation.org">contact@navaneetfoundation.org</a>
+              </li>
+              <li>
+                <span class="contact__list-label">LinkedIn</span>
+                <a href="https://www.linkedin.com/" target="_blank" rel="noopener">linkedin.com/in/navaneetsv</a>
+              </li>
+              <li>
+                <span class="contact__list-label">YouTube</span>
+                <a href="https://www.youtube.com/" target="_blank" rel="noopener">Cric Connect on YouTube</a>
+              </li>
+            </ul>
+          </div>
+
+          <form class="contact__form reveal" id="contactForm" novalidate>
+            <div class="form-field">
+              <label for="name">Full Name</label>
+              <input type="text" id="name" name="name" autocomplete="name" required minlength="2">
+              <span class="form-error" id="nameError" role="alert"></span>
+            </div>
+
+            <div class="form-field">
+              <label for="email">Email Address</label>
+              <input type="email" id="email" name="email" autocomplete="email" required>
+              <span class="form-error" id="emailError" role="alert"></span>
+            </div>
+
+            <div class="form-field">
+              <label for="subject">Subject</label>
+              <input type="text" id="subject" name="subject" required minlength="3">
+              <span class="form-error" id="subjectError" role="alert"></span>
+            </div>
+
+            <div class="form-field">
+              <label for="message">Message</label>
+              <textarea id="message" name="message" rows="5" required minlength="10"></textarea>
+              <span class="form-error" id="messageError" role="alert"></span>
+            </div>
+
+            <button type="submit" class="btn btn--gold btn--full">Send Message</button>
+            <p class="form-success" id="formSuccess" role="status"></p>
+          </form>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ============================= FOOTER ============================= -->
+  <footer class="site-footer">
+    <div class="container site-footer__grid">
+      <div class="site-footer__brand">
+        <span class="navbar__crest" aria-hidden="true">N</span>
+        <p>THE NAVANEET<br>FOUNDATION</p>
+      </div>
+
+      <nav class="site-footer__links" aria-label="Footer navigation">
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#foundation">Foundation</a>
+        <a href="#projects">Projects</a>
+        <a href="#achievements">Achievements</a>
+        <a href="#gallery">Gallery</a>
+        <a href="#contact">Contact</a>
+      </nav>
+
+      <div class="site-footer__social">
+        <a href="mailto:contact@navaneetfoundation.org" aria-label="Email">Email</a>
+        <a href="https://www.linkedin.com/" target="_blank" rel="noopener" aria-label="LinkedIn">LinkedIn</a>
+        <a href="https://www.youtube.com/" target="_blank" rel="noopener" aria-label="YouTube">YouTube</a>
+      </div>
+    </div>
+
+    <p class="site-footer__tagline">Cricket. Technology. Leadership. Impact.</p>
+    <p class="site-footer__copy">&copy; <span id="currentYear"></span> The Navaneet Foundation. All rights reserved.</p>
+  </footer>
+
+  <!-- ============================= BACK TO TOP BUTTON ============================= -->
+  <button class="back-to-top" id="backToTop" type="button" aria-label="Back to top" hidden>
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
+  </button>
+  <script>
+/* ====================================================================
+   THE NAVANEET FOUNDATION — SCRIPT
+   Vanilla JavaScript only. No frameworks, no jQuery.
+   Organized into clearly commented feature modules, each
+   initialized once the DOM is ready.
+   ==================================================================== */
+
+document.addEventListener('DOMContentLoaded', function () {
+
+  /* -----------------------------------------------------------
+     0. SHARED ELEMENT REFERENCES
+     ----------------------------------------------------------- */
+  var header        = document.getElementById('siteHeader');
+  var navLinks       = document.getElementById('navLinks');
+  var navToggle       = document.getElementById('navToggle');
+  var themeToggle      = document.getElementById('themeToggle');
+  var backToTopBtn     = document.getElementById('backToTop');
+  var scrollProgress    = document.getElementById('scrollProgress');
+  var sections       = document.querySelectorAll('main section[id]');
+  var navAnchors      = document.querySelectorAll('.nav-link');
+
+  /* -----------------------------------------------------------
+     1. FOOTER CURRENT YEAR
+     ----------------------------------------------------------- */
+  var yearEl = document.getElementById('currentYear');
+  if (yearEl) yearEl.textContent = new Date().getFullYear();
+
+  /* -----------------------------------------------------------
+     2. DARK / LIGHT MODE TOGGLE
+     Persists user choice in localStorage; falls back to
+     system preference on first visit.
+     ----------------------------------------------------------- */
+  (function initThemeToggle() {
+    var storedTheme = localStorage.getItem('nf-theme');
+    var prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+    var initialTheme = storedTheme || (prefersDark ? 'dark' : 'light');
+
+    applyTheme(initialTheme);
+
+    themeToggle.addEventListener('click', function () {
+      var current = document.documentElement.getAttribute('data-theme') === 'dark' ? 'dark' : 'light';
+      var next = current === 'dark' ? 'light' : 'dark';
+      applyTheme(next);
+      localStorage.setItem('nf-theme', next);
+    });
+
+    function applyTheme(theme) {
+      if (theme === 'dark') {
+        document.documentElement.setAttribute('data-theme', 'dark');
+        themeToggle.setAttribute('aria-pressed', 'true');
+      } else {
+        document.documentElement.removeAttribute('data-theme');
+        themeToggle.setAttribute('aria-pressed', 'false');
+      }
+    }
+  })();
+
+  /* -----------------------------------------------------------
+     3. MOBILE NAVIGATION TOGGLE
+     ----------------------------------------------------------- */
+  (function initMobileNav() {
+    navToggle.addEventListener('click', function () {
+      var isOpen = navLinks.classList.toggle('is-open');
+      navToggle.classList.toggle('is-active', isOpen);
+      navToggle.setAttribute('aria-expanded', String(isOpen));
+      navToggle.setAttribute('aria-label', isOpen ? 'Close navigation menu' : 'Open navigation menu');
+    });
+
+    // Close mobile menu after a link is tapped
+    navAnchors.forEach(function (link) {
+      link.addEventListener('click', function () {
+        navLinks.classList.remove('is-open');
+        navToggle.classList.remove('is-active');
+        navToggle.setAttribute('aria-expanded', 'false');
+      });
+    });
+  })();
+
+  /* -----------------------------------------------------------
+     4. HEADER BACKGROUND ON SCROLL + SCROLL PROGRESS BAR
+     ----------------------------------------------------------- */
+  (function initScrollChrome() {
+    function onScroll() {
+      var scrollY = window.scrollY || window.pageYOffset;
+
+      // Header background once scrolled past hero start
+      header.classList.toggle('is-scrolled', scrollY > 40);
+
+      // Scroll progress bar
+      var docHeight = document.documentElement.scrollHeight - window.innerHeight;
+      var progress = docHeight > 0 ? (scrollY / docHeight) * 100 : 0;
+      scrollProgress.style.width = progress + '%';
+
+      // Back-to-top button visibility
+      if (scrollY > 480) {
+        backToTopBtn.removeAttribute('hidden');
+        backToTopBtn.classList.add('is-visible');
+      } else {
+        backToTopBtn.classList.remove('is-visible');
+        backToTopBtn.setAttribute('hidden', '');
+      }
+    }
+
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll(); // run once on load
+  })();
+
+  /* -----------------------------------------------------------
+     5. BACK TO TOP BUTTON (smooth scroll)
+     ----------------------------------------------------------- */
+  backToTopBtn.addEventListener('click', function () {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+
+  /* -----------------------------------------------------------
+     6. DYNAMIC NAVIGATION HIGHLIGHTING (ScrollSpy)
+     Uses IntersectionObserver to mark the active section link.
+     ----------------------------------------------------------- */
+  (function initScrollSpy() {
+    if (!('IntersectionObserver' in window)) return;
+
+    var observer = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          var id = entry.target.getAttribute('id');
+          navAnchors.forEach(function (link) {
+            link.classList.toggle('is-active', link.dataset.nav === id);
+          });
+        }
+      });
+    }, {
+      rootMargin: '-45% 0px -50% 0px', // trigger when section crosses mid-viewport
+      threshold: 0
+    });
+
+    sections.forEach(function (section) { observer.observe(section); });
+  })();
+
+  /* -----------------------------------------------------------
+     7. SCROLL REVEAL ANIMATIONS
+     Any element with class "reveal" fades/slides in once it
+     enters the viewport. Uses IntersectionObserver for
+     performance (no scroll-event polling).
+     ----------------------------------------------------------- */
+  (function initScrollReveal() {
+    var revealEls = document.querySelectorAll('.reveal');
+    if (!('IntersectionObserver' in window) || revealEls.length === 0) {
+      revealEls.forEach(function (el) { el.classList.add('is-visible'); });
+      return;
+    }
+
+    var revealObserver = new IntersectionObserver(function (entries, obs) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          // Stagger siblings slightly for a more premium feel
+          var delay = (entry.target.dataset.revealIndex || 0) * 60;
+          setTimeout(function () {
+            entry.target.classList.add('is-visible');
+          }, delay);
+          obs.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
+
+    // Tag siblings within the same parent with an index for stagger effect
+    var groupCounts = new Map();
+    revealEls.forEach(function (el) {
+      var parent = el.parentElement;
+      var count = groupCounts.get(parent) || 0;
+      el.dataset.revealIndex = count;
+      groupCounts.set(parent, count + 1);
+      revealObserver.observe(el);
+    });
+  })();
+
+  /* -----------------------------------------------------------
+     8. ANIMATED ACHIEVEMENT COUNTERS
+     Counts up from 0 to data-target once the counters section
+     scrolls into view. Runs once.
+     ----------------------------------------------------------- */
+  (function initCounters() {
+    var counters = document.querySelectorAll('.counter-card__number');
+    if (counters.length === 0) return;
+
+    function animateCounter(el) {
+      var target = parseFloat(el.dataset.target, 10) || 0;
+      var suffix = el.dataset.suffix || '';
+      var duration = 1400; // ms
+      var startTime = null;
+
+      function step(timestamp) {
+        if (!startTime) startTime = timestamp;
+        var progress = Math.min((timestamp - startTime) / duration, 1);
+        // easeOutQuad for a natural deceleration
+        var eased = 1 - (1 - progress) * (1 - progress);
+        var current = Math.round(eased * target);
+        el.textContent = current + suffix;
+
+        if (progress < 1) {
+          requestAnimationFrame(step);
+        } else {
+          el.textContent = target + suffix;
+        }
+      }
+      requestAnimationFrame(step);
+    }
+
+    if (!('IntersectionObserver' in window)) {
+      counters.forEach(animateCounter);
+      return;
+    }
+
+    var counterObserver = new IntersectionObserver(function (entries, obs) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          animateCounter(entry.target);
+          obs.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.5 });
+
+    counters.forEach(function (counter) { counterObserver.observe(counter); });
+  })();
+
+  /* -----------------------------------------------------------
+     9. TYPING EFFECT IN HERO SECTION
+     Cycles through a list of phrases tied to the tagline.
+     ----------------------------------------------------------- */
+  (function initTypingEffect() {
+    var typedEl = document.getElementById('typedText');
+    if (!typedEl) return;
+
+    var phrases = [
+      'Cricket. Technology. Leadership. Impact.',
+      'Founder of Cric Connect.',
+      'Organizer & Licensee, TEDxTCE.',
+      'ICC Pitch Curator Certified, 95%.'
+    ];
+
+    var phraseIndex = 0;
+    var charIndex = 0;
+    var isDeleting = false;
+    var typingSpeed = 55;
+    var deletingSpeed = 30;
+    var holdDelay = 1800;
+
+    function tick() {
+      var current = phrases[phraseIndex];
+
+      if (!isDeleting) {
+        charIndex++;
+        typedEl.textContent = current.slice(0, charIndex);
+        if (charIndex === current.length) {
+          isDeleting = true;
+          setTimeout(tick, holdDelay);
+          return;
+        }
+        setTimeout(tick, typingSpeed);
+      } else {
+        charIndex--;
+        typedEl.textContent = current.slice(0, charIndex);
+        if (charIndex === 0) {
+          isDeleting = false;
+          phraseIndex = (phraseIndex + 1) % phrases.length;
+          setTimeout(tick, 350);
+          return;
+        }
+        setTimeout(tick, deletingSpeed);
+      }
+    }
+
+    tick();
+  })();
+
+  /* -----------------------------------------------------------
+     10. CRICKET SEAM STITCH MARKS (hero ambient detail)
+     Procedurally generates small stitch ticks along the seam
+     path so the signature visual reads as a cricket-ball seam.
+     ----------------------------------------------------------- */
+  (function initSeamStitches() {
+    var seamGroup = document.querySelector('.seam-stitches');
+    var seamPath = document.querySelector('.seam-path');
+    if (!seamGroup || !seamPath || !seamPath.getTotalLength) return;
+
+    var length = seamPath.getTotalLength();
+    var stitchCount = 36;
+    var ns = 'http://www.w3.org/2000/svg';
+
+    for (var i = 0; i <= stitchCount; i++) {
+      var distance = (length / stitchCount) * i;
+      var point = seamPath.getPointAtLength(distance);
+      var pointNext = seamPath.getPointAtLength(Math.min(distance + 1, length));
+
+      // Compute a short perpendicular tick mark at this point along the path
+      var angle = Math.atan2(pointNext.y - point.y, pointNext.x - point.x) + Math.PI / 2;
+      var tickLength = 6;
+      var x1 = point.x + Math.cos(angle) * tickLength;
+      var y1 = point.y + Math.sin(angle) * tickLength;
+      var x2 = point.x - Math.cos(angle) * tickLength;
+      var y2 = point.y - Math.sin(angle) * tickLength;
+
+      var tick = document.createElementNS(ns, 'line');
+      tick.setAttribute('x1', x1);
+      tick.setAttribute('y1', y1);
+      tick.setAttribute('x2', x2);
+      tick.setAttribute('y2', y2);
+      tick.setAttribute('stroke', '#D4AF37');
+      tick.setAttribute('stroke-width', '1');
+      tick.setAttribute('stroke-opacity', '0.3');
+      tick.style.animation = 'fadeSlideUp 1s ease ' + (i * 0.03) + 's both';
+      seamGroup.appendChild(tick);
+    }
+  })();
+
+  /* -----------------------------------------------------------
+     11. INTERACTIVE PROJECT CARDS (subtle tilt on pointer move)
+     Adds a light, premium 3D tilt to project cards on desktop
+     pointer devices. Skips touch devices and reduced-motion.
+     ----------------------------------------------------------- */
+  (function initProjectCardTilt() {
+    var prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    var isTouchDevice = window.matchMedia('(pointer: coarse)').matches;
+    if (prefersReducedMotion || isTouchDevice) return;
+
+    var cards = document.querySelectorAll('.project-card');
+    cards.forEach(function (card) {
+      card.addEventListener('mousemove', function (e) {
+        var rect = card.getBoundingClientRect();
+        var x = (e.clientX - rect.left) / rect.width - 0.5;
+        var y = (e.clientY - rect.top) / rect.height - 0.5;
+        card.style.transform = 'perspective(800px) rotateY(' + (x * 5) + 'deg) rotateX(' + (y * -5) + 'deg) translateY(-6px)';
+      });
+      card.addEventListener('mouseleave', function () {
+        card.style.transform = '';
+      });
+    });
+  })();
+
+  /* -----------------------------------------------------------
+     12. GALLERY FILTERING
+     Filters gallery items by category without a page reload.
+     ----------------------------------------------------------- */
+  (function initGalleryFilter() {
+    var filterButtons = document.querySelectorAll('.filter-btn');
+    var galleryItems = document.querySelectorAll('.gallery-item');
+    if (filterButtons.length === 0) return;
+
+    filterButtons.forEach(function (button) {
+      button.addEventListener('click', function () {
+        var filter = button.dataset.filter;
+
+        filterButtons.forEach(function (btn) {
+          btn.classList.remove('is-active');
+          btn.setAttribute('aria-selected', 'false');
+        });
+        button.classList.add('is-active');
+        button.setAttribute('aria-selected', 'true');
+
+        galleryItems.forEach(function (item) {
+          var matches = filter === 'all' || item.dataset.category === filter;
+          item.classList.toggle('is-hidden', !matches);
+        });
+      });
+    });
+  })();
+
+  /* -----------------------------------------------------------
+     13. IMAGE LIGHTBOX
+     Opens a focused, full-screen view of a gallery item with
+     keyboard and click navigation. Built entirely with vanilla
+     JS and the existing placeholder/figcaption markup.
+     ----------------------------------------------------------- */
+  (function initLightbox() {
+    var lightbox      = document.getElementById('lightbox');
+    var lightboxImage    = document.getElementById('lightboxImage');
+    var lightboxCaption    = document.getElementById('lightboxCaption');
+    var lightboxClose     = document.getElementById('lightboxClose');
+    var lightboxPrev     = document.getElementById('lightboxPrev');
+    var lightboxNext     = document.getElementById('lightboxNext');
+    var galleryItems     = Array.prototype.slice.call(document.querySelectorAll('.gallery-item'));
+    if (!lightbox || galleryItems.length === 0) return;
+
+    var currentIndex = 0;
+
+    function getVisibleItems() {
+      return galleryItems.filter(function (item) { return !item.classList.contains('is-hidden'); });
+    }
+
+    function openLightbox(index) {
+      var visibleItems = getVisibleItems();
+      if (visibleItems.length === 0) return;
+      currentIndex = index;
+      renderSlide(visibleItems);
+      lightbox.removeAttribute('hidden');
+      document.body.style.overflow = 'hidden';
+      lightboxClose.focus();
+    }
+
+    function renderSlide(visibleItems) {
+      var item = visibleItems[currentIndex];
+      var placeholder = item.querySelector('.gallery-item__placeholder');
+      var caption = item.querySelector('figcaption');
+      var computedStyle = window.getComputedStyle(placeholder);
+
+      // Mirror the placeholder's background styling into the lightbox stage
+      lightboxImage.style.background = computedStyle.backgroundImage !== 'none'
+        ? computedStyle.backgroundImage
+        : computedStyle.backgroundColor;
+      lightboxImage.textContent = '';
+
+      var label = document.createElement('span');
+      label.style.color = '#fff';
+      label.style.fontWeight = '600';
+      label.style.fontFamily = 'Playfair Display, Georgia, serif';
+      label.style.fontSize = '1.4rem';
+      label.style.display = 'flex';
+      label.style.height = '100%';
+      label.style.alignItems = 'center';
+      label.style.justifyContent = 'center';
+      label.textContent = placeholder.querySelector('span') ? placeholder.querySelector('span').textContent : '';
+      lightboxImage.appendChild(label);
+
+      lightboxCaption.textContent = caption ? caption.textContent : '';
+    }
+
+    function closeLightbox() {
+      lightbox.setAttribute('hidden', '');
+      document.body.style.overflow = '';
+    }
+
+    function showNext(direction) {
+      var visibleItems = getVisibleItems();
+      currentIndex = (currentIndex + direction + visibleItems.length) % visibleItems.length;
+      renderSlide(visibleItems);
+    }
+
+    galleryItems.forEach(function (item) {
+      function activate() {
+        var visibleItems = getVisibleItems();
+        var indexAmongVisible = visibleItems.indexOf(item);
+        openLightbox(indexAmongVisible >= 0 ? indexAmongVisible : 0);
+      }
+      item.addEventListener('click', activate);
+      item.addEventListener('keydown', function (e) {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          activate();
+        }
+      });
+    });
+
+    lightboxClose.addEventListener('click', closeLightbox);
+    lightboxPrev.addEventListener('click', function () { showNext(-1); });
+    lightboxNext.addEventListener('click', function () { showNext(1); });
+
+    // Close on backdrop click (but not when clicking the stage itself)
+    lightbox.addEventListener('click', function (e) {
+      if (e.target === lightbox) closeLightbox();
+    });
+
+    // Keyboard support: Escape to close, arrows to navigate
+    document.addEventListener('keydown', function (e) {
+      if (lightbox.hasAttribute('hidden')) return;
+      if (e.key === 'Escape') closeLightbox();
+      if (e.key === 'ArrowLeft') showNext(-1);
+      if (e.key === 'ArrowRight') showNext(1);
+    });
+  })();
+
+  /* -----------------------------------------------------------
+     14. CONTACT FORM VALIDATION
+     Lightweight, accessible client-side validation. No external
+     libraries; uses custom messaging alongside native inputs.
+     ----------------------------------------------------------- */
+  (function initContactForm() {
+    var form = document.getElementById('contactForm');
+    if (!form) return;
+
+    var successMessage = document.getElementById('formSuccess');
+
+    var fields = {
+      name: {
+        input: document.getElementById('name'),
+        error: document.getElementById('nameError'),
+        validate: function (value) {
+          if (value.trim().length < 2) return 'Please enter your full name.';
+          return '';
+        }
+      },
+      email: {
+        input: document.getElementById('email'),
+        error: document.getElementById('emailError'),
+        validate: function (value) {
+          var emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+          if (!emailPattern.test(value.trim())) return 'Please enter a valid email address.';
+          return '';
+        }
+      },
+      subject: {
+        input: document.getElementById('subject'),
+        error: document.getElementById('subjectError'),
+        validate: function (value) {
+          if (value.trim().length < 3) return 'Subject should be at least 3 characters.';
+          return '';
+        }
+      },
+      message: {
+        input: document.getElementById('message'),
+        error: document.getElementById('messageError'),
+        validate: function (value) {
+          if (value.trim().length < 10) return 'Message should be at least 10 characters.';
+          return '';
+        }
+      }
+    };
+
+    function validateField(field) {
+      var message = field.validate(field.input.value);
+      field.error.textContent = message;
+      field.input.closest('.form-field').classList.toggle('has-error', Boolean(message));
+      return message === '';
+    }
+
+    // Validate on blur for immediate, non-intrusive feedback
+    Object.keys(fields).forEach(function (key) {
+      fields[key].input.addEventListener('blur', function () {
+        validateField(fields[key]);
+      });
+      // Clear error styling as soon as the user starts correcting it
+      fields[key].input.addEventListener('input', function () {
+        if (fields[key].input.closest('.form-field').classList.contains('has-error')) {
+          validateField(fields[key]);
+        }
+      });
+    });
+
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      successMessage.textContent = '';
+
+      var isFormValid = Object.keys(fields).every(function (key) {
+        return validateField(fields[key]);
+      });
+
+      if (!isFormValid) {
+        // Focus the first invalid field for accessibility
+        var firstInvalidKey = Object.keys(fields).filter(function (key) {
+          return fields[key].error.textContent !== '';
+        })[0];
+        if (firstInvalidKey) fields[firstInvalidKey].input.focus();
+        return;
+      }
+
+      // No backend is wired up; simulate a successful submission.
+      // Replace this block with a fetch() call to a real endpoint when ready.
+      successMessage.textContent = 'Thank you — your message has been received. Navaneet will get back to you soon.';
+      form.reset();
+    });
+  })();
+
+});
+
+  </script>
+</body>
+</html>
